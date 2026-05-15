@@ -1,0 +1,70 @@
+{
+  "host": "192.168.1.100 (Demo Lab VM)",
+  "ip": "192.168.1.100",
+  "scan_time": "2026-04-25 10:30:00",
+  "total_open": 7,
+  "open_ports": [
+    {
+      "port": 23,
+      "service": "Telnet",
+      "risk": "CRITICAL",
+      "reason": "Unencrypted remote access \u2014 immediately replace with SSH",
+      "banner": "Linux telnetd",
+      "state": "OPEN"
+    },
+    {
+      "port": 445,
+      "service": "SMB",
+      "risk": "CRITICAL",
+      "reason": "SMB \u2014 high risk of exploitation (WannaCry, EternalBlue)",
+      "banner": "No banner",
+      "state": "OPEN"
+    },
+    {
+      "port": 3389,
+      "service": "RDP",
+      "risk": "CRITICAL",
+      "reason": "Remote Desktop \u2014 frequent brute force target, restrict access",
+      "banner": "No banner",
+      "state": "OPEN"
+    },
+    {
+      "port": 21,
+      "service": "FTP",
+      "risk": "HIGH",
+      "reason": "Unencrypted file transfer \u2014 credentials exposed in plaintext",
+      "banner": "vsftpd 2.3.4",
+      "state": "OPEN"
+    },
+    {
+      "port": 3306,
+      "service": "MySQL",
+      "risk": "HIGH",
+      "reason": "MySQL exposed \u2014 database should not be publicly accessible",
+      "banner": "MySQL 5.5.0",
+      "state": "OPEN"
+    },
+    {
+      "port": 80,
+      "service": "HTTP",
+      "risk": "MEDIUM",
+      "reason": "Unencrypted web server \u2014 sensitive data exposed without HTTPS",
+      "banner": "Apache/2.2.8",
+      "state": "OPEN"
+    },
+    {
+      "port": 443,
+      "service": "HTTPS",
+      "risk": "LOW",
+      "reason": "Encrypted web server \u2014 ensure TLS certificate is valid",
+      "banner": "Apache/2.2.8",
+      "state": "OPEN"
+    }
+  ],
+  "risk_summary": {
+    "CRITICAL": 3,
+    "HIGH": 2,
+    "MEDIUM": 1,
+    "LOW": 1
+  }
+}
